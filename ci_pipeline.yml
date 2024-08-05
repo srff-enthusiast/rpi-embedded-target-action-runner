@@ -80,6 +80,8 @@ jobs:
         with:
           name: stm32-firmware-sample_application-${{ steps.version_handling.outputs.file_postfix }}
           path: stm32-firmware
+
+
   unit-test:
     needs: analyse-code
     name: Unit test
@@ -157,6 +159,8 @@ jobs:
         with:
           name: test-system-output
           path: test-system-output
+  
+
   release:
     needs: [unit-test, system-test]
     if: github.ref == 'refs/heads/master' || github.event.inputs.release == 'y'
