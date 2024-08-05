@@ -23,7 +23,12 @@ void Application_RunDefaultTask(void)
 
 	printf("image_id: %d, version: %d.%d.%d-%s\n", (int) IMAGE_ID, (int) VERSION_MAJOR, (int) VERSION_MINOR, (int) VERSION_BUGFIX, SHORT_GIT_HASH_STRING);
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wconversion"
+
 	calculate = Sensor_GetValue() + 20;
+
+#pragma GCC diagnostic pop
 
 	printf("Calculated value: %hd\n", calculate);
 
